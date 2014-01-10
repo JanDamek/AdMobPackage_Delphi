@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{170E23C6-D3C1-4DB9-86C1-03876BE2B0B9}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="AdMobLibrary.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="AdMobLibrary">
+        <MSBuild Projects="AdMobLibrary.dproj"/>
+    </Target>
+    <Target Name="AdMobLibrary:Clean">
+        <MSBuild Projects="AdMobLibrary.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="AdMobLibrary:Make">
+        <MSBuild Projects="AdMobLibrary.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="AdMobLibrary"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="AdMobLibrary:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="AdMobLibrary:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
